@@ -143,6 +143,37 @@ export interface NoRecordProps {
     altText: string;
 }
 
+export interface DashboardCardsProps {
+    headerTitle: string;
+    cardValue: number;
+    cardPercentage: number;
+    chartData: number[];
+    series: { name: string; data: number[]; }[];
+}
+
+export interface DashboardBannerProps {
+    chartCardData: DashboardCardsProps[];
+}
+
+export interface WeeklyChartProps {
+    headerTitle: string;
+    chartData: ApexAxisChartSeries;
+}
+
+export * from "./transactions";
+export interface RecentTransactionProps {
+    recentTName: string;
+    recentTDate: string;
+    recentTAmount: number; 
+    data: object[]
+}
+
+export interface ServiceCardsProps {
+    serviceTitle: string;
+    btnType: "Details" | "button";
+    imageUrl: string;
+}
+
 
 // ---------- store interface(s) ---------- //
 export interface AuthStoreInterface {

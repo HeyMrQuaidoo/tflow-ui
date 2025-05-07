@@ -7,7 +7,7 @@ export const CustomTable = <T extends { [key: string]: any }>({
     data, columns, rowClassName, tableClassName, headerClassName, onRowClick, onCellClick, showPagination=true  
 }: CustomTableProps<T>) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage] = useState<number>(7);
+    const [rowsPerPage, setRowsPerPage] = useState<number>(5);
     const displayPagination = showPagination && data?.length > 0;
     
     const truncateText = (text: string, maxLength: number = 12) => {
@@ -34,7 +34,7 @@ export const CustomTable = <T extends { [key: string]: any }>({
     return (
         <section className={`bg-white ${displayPagination ? "grid gap-4" : "block"} rounded-lg`}>
             <table className={`min-w-full bg-white ${tableClassName}`}>
-                <thead className="bg-black text-white">
+                <thead className="bg-blue-600 text-white">
                     <tr className={`${headerClassName ?? ""} text-sm rounded-lg`}>
                         {columns.map((col, index) => (
                             <th key={index} className={`py-2.5 px-4 font-medium border-b border-gray ${col.className}`}>

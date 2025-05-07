@@ -69,6 +69,24 @@ export const sidebarItems = [
         label: "Overview"
     },
     {
+        path: "/Services",
+        icon: RiDashboardLine,
+        activeIcon: RiDashboardLine,
+        label: "Services"
+    },
+    {
+        path: "/overview",
+        icon: RiDashboardLine,
+        activeIcon: RiDashboardLine,
+        label: "Overview"
+    },
+    {
+        path: "/overview",
+        icon: RiDashboardLine,
+        activeIcon: RiDashboardLine,
+        label: "Overview"
+    },
+    {
         path: "/random",
         icon: RiMacLine,
         activeIcon: RiMacLine,

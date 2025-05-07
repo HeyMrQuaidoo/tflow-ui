@@ -13,7 +13,7 @@ const ActiveIndicator = () => {
     );
 }
 
-export const Sidebar: FC = () => {
+export const Sidebar: FC = () => {  
     const location = useLocation();
     const { authorisedUser } = useAuthStore();
     const { toggleUserProfileModalOpen } = useUIModal();
@@ -42,7 +42,7 @@ export const Sidebar: FC = () => {
         <aside
             className="
                 fixed w-64 h-screen lg:w-72 py-3 px-6 overflow-y-auto md:translate-x-0
-                scrollbar-hide flex flex-col justify-between flex-shrink-0 bg-black text-white border-r border-strokeSoft z-30 md:z-10
+                scrollbar-hide flex flex-col justify-between flex-shrink-0 bg-[#0B122E] text-white border-r border-strokeSoft z-30 md:z-10
             "
         >
             <div className="py-4 flex flex-col gap-12">
