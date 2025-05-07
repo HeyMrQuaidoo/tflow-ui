@@ -1,13 +1,8 @@
-import "./App.css";
-import { UIProvider } from "@/context";
-import { Dashboard, ForgotPassword, SignIn, SignUp } from "@/features";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {
-  MiniProfileModal,
-  Navbar,
-  NotificationModal,
-  Sidebar,
-} from "@/components";
+import "./App.css"
+import { UIProvider } from "@/context"
+import { Dashboard, ForgotPassword, SignIn, SignUp } from "@/features"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { MiniProfileModal, Navbar, NotificationModal, Sidebar } from "@/components"
 import { Services } from "./features/auth/services";
 
 function App() {
@@ -21,22 +16,20 @@ function App() {
         <Route path="/app/*" element={<MainLayout />} />
       </Routes>
     </Router>
-  );
+  )
 }
 
 function MainLayout() {
   return (
     <UIProvider>
-      <div className="h-screen">
+      <div className="flex h-screen">
         <Sidebar />
-        <div className="relative flex-1 flex flex-col md:w-[calc(100%-16rem)] lg:w-[calc(100%-18rem)] md:ml-[16rem] lg:ml-[18rem]">
+        <div className="relative bg-mainBg flex-1 flex flex-col md:w-[calc(100%-16rem)] lg:w-[calc(100%-18rem)] md:ml-[16rem] lg:ml-[18rem]">
           <Navbar />
-          <div className="p-6">
-            <Routes>
-              <Route path="/overview" element={<Dashboard />} />
-              <Route path="/services" element={<Services />} />
-            </Routes>
-          </div>
+          <Routes>
+            <Route path="/overview" element={<Dashboard />} />
+            <Route path="/services" element={<Services />} />
+          </Routes>
         </div>
       </div>
       <NotificationModal />
@@ -45,4 +38,4 @@ function MainLayout() {
   );
 }
 
-export default App;
+export default App

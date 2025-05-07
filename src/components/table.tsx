@@ -34,7 +34,7 @@ export const CustomTable = <T extends { [key: string]: any }>({
     return (
         <section className={`bg-white ${displayPagination ? "grid gap-4" : "block"} rounded-lg`}>
             <table className={`min-w-full bg-white ${tableClassName}`}>
-                <thead className="bg-blue-600 text-white">
+                <thead className="bg-black text-white">
                     <tr className={`${headerClassName ?? ""} text-sm rounded-lg`}>
                         {columns.map((col, index) => (
                             <th key={index} className={`py-2.5 px-4 font-medium border-b border-gray ${col.className}`}>

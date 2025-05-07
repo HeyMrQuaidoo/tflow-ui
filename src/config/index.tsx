@@ -1,10 +1,17 @@
+// global imports
 import { StylesConfig } from "react-select"
-import { RiDashboardLine, RiMacLine } from "react-icons/ri"
+import { RiCalendarLine, RiDashboardLine, RiMacLine } from "react-icons/ri"
+
+import dayjs, { Dayjs } from "dayjs"
+import { DateRange } from "@mui/x-date-pickers-pro"
+import InputAdornment from "@mui/material/InputAdornment"
+import { PickersShortcutsItem } from "@mui/x-date-pickers"
 
 
 export const defaultIconSize = 18;
 export const defaultIconLgSize = 20;
 export const defaultIconXlSize = 32;
+export const currencySymbol = "GH₵";
 
 export const customStyles: StylesConfig = {
     control: (base: any, state: { isFocused: any; isDisabled: any; }) => ({
@@ -103,3 +110,109 @@ export const sidebarItems = [
         ],
     },
 ];
+
+
+// ---------- table config ---------- //
+export const commonTextFieldProps = {
+    size: "small" as const,
+    sx: {
+        "& .MuiOutlinedInput-root": {
+            borderRadius: "1rem",
+            fontSize: "14px",
+            background: "white",
+        },
+        "& .MuiOutlinedInput-notchedOutline": {
+            borderRadius: "1rem",
+        },
+        "& input": {
+            fontSize: "14px",
+            width: "auto",
+            minWidth: 0,
+        },
+        "&.MuiTextField-root": {
+            minWidth: "auto", 
+            width: "auto",
+        },
+        "&.MuiPickersTextField-root": {
+            minWidth: "auto",
+            width: "auto",
+        },
+    },
+};
+
+
+export const dateRangePickerProps = {
+    InputProps: {
+        startAdornment: (
+            <InputAdornment position="start">
+                <RiCalendarLine size={20} className="text-textSoft" />
+            </InputAdornment>
+        ),
+    },
+};
+
+
+export const shortcutItems: PickersShortcutsItem<DateRange<Dayjs>>[] = [
+    {
+      label: "Today",
+      getValue: () => {
+        const today = dayjs();
+        return [today, today];
+      },
+    },
+    {
+      label: "Last 7 Days",
+      getValue: () => {
+        const today = dayjs();
+        return [today.subtract(7, "day"), today];
+      },
+    },
+    {
+        label: "Last 30 Days",
+        getValue: () => {
+          const today = dayjs();
+          return [today.subtract(30, "day"), today];
+        },
+    },
+    {
+        label: "Last 3 Months",
+        getValue: () => {
+          const today = dayjs();
+          return [today.subtract(3, "month"), today];
+        },
+    },
+    {
+        label: "Last 12 Months",
+        getValue: () => {
+          const today = dayjs();
+          return [today.subtract(12, "month"), today];
+        },
+    },
+    {
+        label: "Month to Date",
+        getValue: () => {
+          const today = dayjs();
+          return [today.startOf("month"), today];
+        },
+    },
+    {
+        label: "Year to Date",
+        getValue: () => {
+          const today = dayjs();
+          return [today.startOf("year"), today];
+        },
+    },
+    {
+        label: "All Time",
+        getValue: () => {
+          return [null, null];
+        },
+    },
+    {
+      label: "Custom",
+      getValue: () => {
+        return [null, null]; 
+      },
+    },
+];
+// ---------- end of table config ---------- //

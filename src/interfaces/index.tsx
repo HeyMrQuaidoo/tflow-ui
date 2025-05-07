@@ -1,5 +1,9 @@
-import { JSX, ReactNode } from "react";
+// global imports
+import { Dayjs } from "dayjs"
+import { JSX, ReactNode } from "react"
+import { DateRange } from "@mui/x-date-pickers-pro"
 import { Control, FieldErrors } from "react-hook-form"
+import { RemixiconComponentType } from "@remixicon/react"
 
 
 type AuthType = "signin" | "signup" | "reset-password";
@@ -81,6 +85,43 @@ export interface BaseColumn<T> {
     className?: string;
 }
 
+export interface BaseColumn<T> {
+    title: string;
+    dataIndex: keyof T | string;
+    className?: string;
+}
+
+export interface CustomContainerProps {
+    scrollbarHide?: boolean;
+    children: ReactNode;
+    gap?: boolean;
+}
+
+export interface CustomDateRangePickerProps {
+    selectedDateRange:  DateRange<Dayjs> | undefined;
+    onDateRangeChange: (value: [Dayjs | null, Dayjs | null] | null) => void;
+}
+
+export interface CustomTableFilterProps {
+    searchItem?: {
+        value: boolean;
+        placeholder?: string;
+        onSearchChange?: (value: string) => void;
+    };
+    datepicker?: {
+        value: boolean;
+        onDateChange: (value: Dayjs | null) => void;
+        onClearDate: () => void;
+    };
+    daterangepicker?: {
+        value: boolean;
+        selectedDateRange?: DateRange<Dayjs> | undefined;
+        onDateRangeChange: (value: [Dayjs | null, Dayjs | null] | null) => void;
+        onClearDateRange?: () => void;
+    };
+    regularButton?: CustomButtonProps | CustomButtonProps[];
+}
+
 export interface TableColumn<T> extends BaseColumn<T> {
     render?: (value: any, record: T, additionalProps?: any) => JSX.Element | string;
     cellClassName?: (value: any, record: T, index: number) => string | undefined;
@@ -141,6 +182,19 @@ export interface NoRecordProps {
     message?: string;
     iconSize: number;
     altText: string;
+}
+
+
+export interface StatsCardProps {
+    icon?: RemixiconComponentType;
+    clickEvent?: () => void;
+    currency?: boolean;
+    bgColour?: string;
+    iconColour?: string;
+    iconBg?: string;
+    title: string;
+    value: string;
+    percentageInfo?: { value: string | number, note: string };
 }
 
 export interface DashboardCardsProps {

@@ -1,7 +1,14 @@
 import { FC } from "react"
 import avatar from "/avatar.png"
-import { ProfileSectionProps } from "@/interfaces"
+import { CustomContainerProps, ProfileSectionProps } from "@/interfaces"
 import { RiArrowRightSLine } from "react-icons/ri"
+
+
+export const MainWrapper: FC<CustomContainerProps> = ({ children }) => {
+    return (
+        <div className="p-8 flex flex-col gap-6">{children}</div>
+    );
+}
 
 
 export const ProfileSection: FC<ProfileSectionProps> = ({ authorisedUser, clickEvent }) => {
@@ -14,5 +21,14 @@ export const ProfileSection: FC<ProfileSectionProps> = ({ authorisedUser, clickE
             </div>
             <RiArrowRightSLine role="button" className="text-textSecondary shrink-0 pr-1" />
         </div>
+    );
+}
+
+
+export const SoftBorderedContainer: FC<CustomContainerProps> = ({ children, gap, scrollbarHide }) => {
+    return (
+      <div className={`flex-grow h-fit bg-white p-4 ${gap ? "flex flex-col flex-wrap gap-4" : "grid"} rounded-2xl border border-strokeSoft overflow-x-auto${scrollbarHide ? " scrollbar-hide" : ""}`}>
+        {children}
+      </div>
     );
 }
